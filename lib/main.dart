@@ -1,4 +1,5 @@
-import 'package:aplyflow/presentation/app/home_shell.dart';
+// import 'package:aplyflow/presentation/app/home_shell.dart';
+import 'package:aplyflow/presentation/auth/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main(){
@@ -14,7 +15,7 @@ class AplyFlowApp extends StatelessWidget {
       title: "AplyFlow",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
-      home: HomeShell()
+      home: LoginPage()
     );
   }
 }
