@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ApplicationsPage extends StatelessWidget {
+class ApplicationsPage extends StatefulWidget {
   const ApplicationsPage({super.key});
 
+  @override
+  State<ApplicationsPage> createState() => _ApplicationsPageState();
+}
+
+class _ApplicationsPageState extends State<ApplicationsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +27,7 @@ class ApplicationsPage extends StatelessWidget {
             title: Text('Kaspi - Junior Flutter'),
             subtitle: Text('Interview Refferal'),
             trailing: Icon(Icons.chevron_right),
-          )
+          ),
         ],
       ),
     );

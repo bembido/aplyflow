@@ -14,14 +14,15 @@ class HomeShell extends StatefulWidget {
 class _HomeShellState extends State<HomeShell> {
   int index = 0;
   final pages = [
-    ApplicationsPage(),
-    DashboardPage(),
-    FollowupsPage(),
-    SettingsPage(),
-  ];
+      ApplicationsPage(),
+      DashboardPage(),
+      FollowupsPage(),
+      SettingsPage(),
+    ];
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: pages[index],
       bottomNavigationBar: NavigationBar(
