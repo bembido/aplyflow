@@ -1,7 +1,7 @@
-import 'package:aplyflow/presentation/applications/applications_page.dart';
-import 'package:aplyflow/presentation/dashboard/dashboard_page.dart';
-import 'package:aplyflow/presentation/followups/followups_page.dart';
-import 'package:aplyflow/presentation/settings/settings_page.dart';
+import 'package:aplyflow/presentation/pages/applications/applications_page.dart';
+import 'package:aplyflow/presentation/pages/dashboard/dashboard_page.dart';
+import 'package:aplyflow/presentation/pages/followups/followups_page.dart';
+import 'package:aplyflow/presentation/pages/settings/settings_page.dart';
 import 'package:flutter/material.dart';
 
 class HomeShell extends StatefulWidget {

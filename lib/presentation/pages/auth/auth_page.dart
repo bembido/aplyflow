@@ -1,6 +1,6 @@
 import 'package:aplyflow/presentation/app/home_shell.dart';
-import 'package:aplyflow/presentation/auth/login_screen.dart';
-import 'package:aplyflow/presentation/auth/signup_screen.dart';
+import 'package:aplyflow/presentation/pages/auth/login_screen.dart';
+import 'package:aplyflow/presentation/pages/auth/signup_screen.dart';
 import 'package:flutter/material.dart';
 
 class AuthPage extends StatefulWidget {
