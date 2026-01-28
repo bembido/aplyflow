@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:aplyflow/presentation/app/router.dart';
-import 'package:aplyflow/presentation/pages/auth/auth_page.dart';
+// import 'package:aplyflow/presentation/pages/auth/auth_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -25,16 +25,15 @@ class _SplashScreenState extends State<SplashScreen>
     );
     animation = Tween<double>(begin: 200, end: 1000).animate(controller)
       ..addListener(() {
-        setState(() {
-          
-        });
+        setState(() {});
       });
     controller.forward();
 
-    Future.delayed(Duration(seconds: 3), () {
-      if (!mounted) return;
-      Navigator.of(context).pushReplacementNamed(AppRouter.starter);
-    },);
+    controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        Navigator.of(context).pushReplacementNamed(AppRouter.auth);
+      }
+    });
   }
 
   @override

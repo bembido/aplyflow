@@ -1,11 +1,15 @@
 // import 'package:aplyflow/presentation/app/home_shell.dart';
 // import 'package:aplyflow/presentation/pages/auth/auth_page.dart';
 import 'package:aplyflow/presentation/app/router.dart';
-import 'package:aplyflow/presentation/screens/splash/splash_screen.dart';
+// import 'package:aplyflow/presentation/screens/splash/splash_screen.dart';
 // import 'package:aplyflow/presentation/auth/login_screen.dart';
 import 'package:flutter/material.dart';
+// import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main(){
+
+  // await Supabase.initialize(anonKey: , url: );
+
   runApp(AplyFlowApp());
 }
 
