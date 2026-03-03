@@ -15,6 +15,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case auth:
         return MaterialPageRoute(builder: (_) => const AuthPage());
+      case starter:
+        return MaterialPageRoute(builder: (_) => const StarterScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => const Scaffold(

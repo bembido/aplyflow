@@ -1,5 +1,6 @@
 // import 'package:aplyflow/presentation/app/home_shell.dart';
 // import 'package:aplyflow/presentation/pages/auth/auth_page.dart';
+import 'package:aplyflow/core/theme/app_theme.dart';
 import 'package:aplyflow/presentation/app/router.dart';
 // import 'package:aplyflow/presentation/screens/splash/splash_screen.dart';
 // import 'package:aplyflow/presentation/auth/login_screen.dart';
@@ -10,7 +11,7 @@ void main(){
 
   // await Supabase.initialize(anonKey: , url: );
 
-  runApp(AplyFlowApp());
+  runApp(const AplyFlowApp());
 }
 
 class AplyFlowApp extends StatelessWidget {
@@ -23,7 +24,7 @@ class AplyFlowApp extends StatelessWidget {
       onGenerateRoute: AppRouter.onGenerateRoute,
       title: "AplyFlow",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true),
+      theme: AppTheme.lightTheme,
       // home: SplashScreen()
     );
   }
