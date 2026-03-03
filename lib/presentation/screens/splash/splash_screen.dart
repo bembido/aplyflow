@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:aplyflow/presentation/app/router.dart';
-// import 'package:aplyflow/presentation/pages/auth/auth_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,25 +12,33 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
-  late Animation<double> animation;
-  late AnimationController controller;
+  late AnimationController _controller;
+  late Animation<double> _fadeAnimation;
+  late Animation<double> _scaleAnimation;
 
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-      vsync: this,
-      duration: Duration(seconds: 3),
-    );
-    animation = Tween<double>(begin: 200, end: 1000).animate(controller)
-      ..addListener(() {
-        setState(() {});
-      });
-    controller.forward();
 
-    controller.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        Navigator.of(context).pushReplacementNamed(AppRouter.auth);
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1500),
+    );
+
+    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
+    );
+
+    _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeOutBack),
+    );
+
+    _controller.forward();
+
+    // After animation, navigate to the StarterScreen
+    Timer(const Duration(milliseconds: 2500), () {
+      if (mounted) {
+        Navigator.of(context).pushReplacementNamed(AppRouter.starter);
       }
     });
   }
@@ -39,12 +46,31 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Center(
-        child: SizedBox(
-          height: animation.value,
-          width: animation.value,
-          child: Image(
-            image: AssetImage('assets/images/AplyFlow_logo_no_text.png'),
+        child: FadeTransition(
+          opacity: _fadeAnimation,
+          child: ScaleTransition(
+            scale: _scaleAnimation,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  'assets/images/AplyFlow_logo_no_text.png',
+                  width: 120,
+                  height: 120,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  'AplyFlow',
+                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 1.5,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -53,7 +79,7 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   void dispose() {
-    controller.dispose();
+    _controller.dispose();
     super.dispose();
   }
 }
